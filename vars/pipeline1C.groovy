@@ -30,7 +30,7 @@ void call() {
             
             stage('gitsync') {
                 agent {
-                    label 'agent'
+                    label 'master'
                 }
                 options {
                     timeout(time: 1, unit: TimeUnit.HOURS)
