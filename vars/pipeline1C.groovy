@@ -27,6 +27,19 @@ void call() {
         }
 
         stages {
+            
+            stage('gitsync') {
+                agent {
+                    label 'agent'
+                }
+                options {
+                    timeout(time: 1, unit: TimeUnit.HOURS)
+                }
+
+                steps {
+                    bat 'gitsync sync -u Администратор C:\\1C\\repo\\kpi_master C:\\1C\\KPI\\src\\cf'
+                }
+            }
 
             stage('pre-stage') {
                 agent {
